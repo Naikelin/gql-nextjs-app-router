@@ -56,6 +56,7 @@ const AnimeListPage: React.FC<Props> = ({ page }) => {
 
   useEffect(() => {
     async function fetchAnimeList() {
+      setLoading(true);
       try {
         const { data } = await client.query<AnimeListData>({
           query: GET_ANIME_LIST,
@@ -83,7 +84,7 @@ const AnimeListPage: React.FC<Props> = ({ page }) => {
       <ul>
         {animeList.map((anime) => (
           <li key={anime.id}>
-            <div>{anime.title.english} | {anime.title.native}</div>
+            <div>{anime.title.english || "---"} | {anime.title.native || "---"}</div>
           </li>
         ))}
       </ul>

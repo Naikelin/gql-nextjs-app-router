@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import styled from '@emotion/styled'
 
 interface Anime {
   id: number;
